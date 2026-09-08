@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling for the "OS" feel */
+        }
+        
+        .glass-window {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.3); /* Rim light */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .traffic-light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .traffic-red { background-color: #FF5F56; }
+        .traffic-yellow { background-color: #FFBD2E; }
+        .traffic-green { background-color: #27C93F; }
+
+        .dock-icon-container {
+            position: relative;
+        }
+
+        .dock-tooltip {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .dock-icon-container:hover .dock-tooltip {
+            opacity: 1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#432c00",
+                      "outline": "#8b919b",
+                      "surface": "#041036",
+                      "on-primary-fixed": "#001d36",
+                      "surface-container-high": "#1d284e",
+                      "on-error": "#690005",
+                      "background": "#041036",
+                      "surface-dim": "#041036",
+                      "on-primary": "#003259",
+                      "surface-container": "#111d43",
+                      "primary-fixed-dim": "#9fcaff",
+                      "surface-bright": "#2c375e",
+                      "surface-container-highest": "#283359",
+                      "inverse-primary": "#21619c",
+                      "traffic-yellow": "#FFBD2E",
+                      "secondary-fixed": "#dae2ff",
+                      "surface-variant": "#283359",
+                      "outline-variant": "#414750",
+                      "secondary-fixed-dim": "#b1c5ff",
+                      "secondary": "#b1c5ff",
+                      "traffic-green": "#27C93F",
+                      "primary-container": "#79b0f0",
+                      "on-secondary-container": "#a6beff",
+                      "secondary-container": "#0148ab",
+                      "on-secondary-fixed": "#001946",
+                      "on-error-container": "#ffdad6",
+                      "tertiary": "#f8be58",
+                      "on-secondary": "#002c70",
+                      "error": "#ffb4ab",
+                      "tertiary-fixed-dim": "#f7bd57",
+                      "on-tertiary-fixed": "#281900",
+                      "on-primary-container": "#004273",
+                      "error-container": "#93000a",
+                      "tertiary-container": "#daa340",
+                      "inverse-surface": "#dce1ff",
+                      "primary-fixed": "#d2e4ff",
+                      "border-glass": "rgba(255, 255, 255, 0.2)",
+                      "surface-container-lowest": "#000a31",
+                      "inverse-on-surface": "#232e55",
+                      "surface-container-low": "#0d193f",
+                      "surface-tint": "#9fcaff",
+                      "on-primary-fixed-variant": "#00497e",
+                      "on-tertiary-container": "#573b00",
+                      "on-surface": "#dce1ff",
+                      "on-secondary-fixed-variant": "#00419e",
+                      "on-background": "#dce1ff",
+                      "on-tertiary-fixed-variant": "#604100",
+                      "tertiary-fixed": "#ffdeac",
+                      "surface-glass": "rgba(255, 255, 255, 0.08)",
+                      "traffic-red": "#FF5F56",
+                      "on-surface-variant": "#c1c7d1",
+                      "surface-glass-thick": "rgba(255, 255, 255, 0.15)",
+                      "primary": "#a2cbff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "margin-mobile": "20px",
+                      "gutter": "16px",
+                      "margin-desktop": "40px",
+                      "window-padding": "24px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "15px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface h-screen w-screen relative overflow-hidden flex flex-col font-body-md">
+<!-- Wallpaper Background -->
+<div class="absolute inset-0 z-0 bg-cover bg-center" data-alt="A smooth, flowing abstract gradient background in deep blues and light cyans, evoking a sense of calm and modern digital aesthetics, reminiscent of default OS wallpapers." style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLtD1tgveS7_4ytNBAiJDTgply08NfUMzpTD7sy7AoKouK1RITNnOXM9OYFcvf3GwSA7LGLZsPUQqialvV85FBczl8MzMlu3ScGqUzUPMwS52nA_y5cuo-xCIAscy-QAXDj0-DVcVpFYKA7h4FjQLXX7eNHipKNdbsjMPDc46Tqiu72wJJMW6L0sX31xBtUk9QD4XCzMx8F1OkUyCNY1Iu581MViV5DljNcrcWpvlpqNhcSjWhad8x_7LRiC');"></div>
+<!-- Top App Bar (From JSON) -->
+<nav class="fixed top-0 w-full h-8 flex justify-between items-center px-4 z-[100] bg-surface-glass backdrop-blur-md text-on-surface border-b border-white/10 shadow-sm">
+<div class="flex items-center gap-4">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">PortfolioOS</span>
+<div class="hidden md:flex items-center gap-4 font-label-md text-label-md">
+<!-- Active Item: About (closest to "About Me") -->
+<a class="text-on-surface/80 hover:bg-white/10 transition-colors px-2 py-1 rounded" href="#">File</a>
+<a class="text-on-surface/80 hover:bg-white/10 transition-colors px-2 py-1 rounded" href="#">Edit</a>
+<a class="text-primary font-bold hover:bg-white/10 transition-colors px-2 py-1 rounded" href="#">View</a> <!-- Assuming View as active for exploring portfolio -->
+<a class="text-on-surface/80 hover:bg-white/10 transition-colors px-2 py-1 rounded" href="#">Go</a>
+<a class="text-on-surface/80 hover:bg-white/10 transition-colors px-2 py-1 rounded" href="#">Window</a>
+<a class="text-on-surface/80 hover:bg-white/10 transition-colors px-2 py-1 rounded" href="#">Help</a>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined hover:bg-white/10 transition-colors rounded p-1 cursor-pointer text-[18px]">wifi</span>
+<span class="material-symbols-outlined hover:bg-white/10 transition-colors rounded p-1 cursor-pointer text-[18px]">battery_full</span>
+<span class="material-symbols-outlined hover:bg-white/10 transition-colors rounded p-1 cursor-pointer text-[18px]">search</span>
+<span class="material-symbols-outlined hover:bg-white/10 transition-colors rounded p-1 cursor-pointer text-[18px]">calendar_today</span>
+</div>
+</nav>
+<!-- Desktop Area -->
+<main class="relative flex-1 z-10 pt-8 pb-20 px-margin-desktop flex items-center justify-center">
+<!-- Desktop Icons (Right side) -->
+<div class="absolute right-margin-desktop top-24 flex flex-col gap-6 items-center w-20">
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-16 h-16 bg-surface-glass backdrop-blur-md rounded-xl border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<span class="text-label-md font-label-md text-white drop-shadow-md text-center bg-black/30 px-2 py-0.5 rounded">Resume</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-16 h-16 bg-surface-glass backdrop-blur-md rounded-xl border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-4xl text-on-surface" style="font-variation-settings: 'FILL' 1;">hard_drive</span>
+</div>
+<span class="text-label-md font-label-md text-white drop-shadow-md text-center bg-black/30 px-2 py-0.5 rounded">Macintosh HD</span>
+</div>
+</div>
+<!-- Main Window: About Me -->
+<div class="glass-window rounded-xl w-full max-w-3xl h-[60vh] flex flex-col overflow-hidden relative">
+<!-- Window Title Bar -->
+<div class="h-12 border-b border-white/10 bg-white/5 flex items-center px-4 shrink-0">
+<div class="flex gap-2 w-24">
+<div class="traffic-light traffic-red cursor-pointer"></div>
+<div class="traffic-light traffic-yellow cursor-pointer"></div>
+<div class="traffic-light traffic-green cursor-pointer"></div>
+</div>
+<div class="flex-1 text-center font-label-md text-label-md text-on-surface/80 font-medium tracking-wide">
+                    About Me
+                </div>
+<div class="w-24"></div> <!-- Spacer for center alignment -->
+</div>
+<!-- Window Content -->
+<div class="flex-1 p-window-padding flex flex-col md:flex-row gap-8 overflow-y-auto">
+<!-- Left Column: Avatar/Profile -->
+<div class="w-full md:w-1/3 flex flex-col items-center gap-6">
+<div class="w-48 h-48 rounded-full overflow-hidden border-2 border-white/20 shadow-lg relative">
+<!-- Placeholder for profile picture -->
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center backdrop-blur-sm">
+<span class="material-symbols-outlined text-6xl text-primary opacity-50">person</span>
+</div>
+</div>
+<div class="text-center">
+<h1 class="font-headline-md text-headline-md font-semibold text-white">Muhammad Assegaf</h1>
+<p class="font-body-md text-body-md text-primary mt-1">Data Analyst</p>
+</div>
+<div class="flex gap-4 mt-2">
+<a class="w-10 h-10 rounded-full bg-surface-glass backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-on-surface">link</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-glass backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-on-surface">mail</span>
+</a>
+</div>
+</div>
+<!-- Right Column: Details -->
+<div class="w-full md:w-2/3 flex flex-col gap-6">
+<div class="bg-surface-glass backdrop-blur-md rounded-lg p-6 border border-white/10">
+<h2 class="font-headline-sm text-headline-sm font-semibold mb-4 text-white border-b border-white/10 pb-2">Experience &amp; Focus</h2>
+<p class="font-body-md text-body-md text-on-surface/90 leading-relaxed">
+                            I am a Data Analyst passionate about uncovering insights from complex datasets. Specializing in visualizing trends and building models that drive strategic decisions.
+                        </p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-glass backdrop-blur-md rounded-lg p-4 border border-white/10 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">bar_chart</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md font-semibold text-white">Analytics</h3>
+<p class="text-xs text-on-surface/70">Python, SQL</p>
+</div>
+</div>
+<div class="bg-surface-glass backdrop-blur-md rounded-lg p-4 border border-white/10 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">query_stats</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md font-semibold text-white">Visualization</h3>
+<p class="text-xs text-on-surface/70">Tableau, PowerBI</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar / Dock (From JSON) -->
+<div class="fixed bottom-0 left-0 right-0 flex justify-center pb-4 z-[90]">
+<nav class="bg-surface-glass-thick backdrop-blur-xl rounded-xl mx-auto w-fit border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center p-2 gap-2 h-16">
+<!-- Finder (Inactive) -->
+<a class="dock-icon-container group" href="#">
+<div class="w-12 h-12 flex items-center justify-center text-on-surface p-2 hover:scale-125 transition-transform duration-200 ease-out origin-bottom">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">folder</span>
+</div>
+<span class="dock-tooltip font-label-sm text-label-sm">Finder</span>
+</a>
+<!-- Projects (Inactive) -->
+<a class="dock-icon-container group" href="#">
+<div class="w-12 h-12 flex items-center justify-center text-on-surface p-2 hover:scale-125 transition-transform duration-200 ease-out origin-bottom">
+<span class="material-symbols-outlined text-3xl">laptop_mac</span>
+</div>
+<span class="dock-tooltip font-label-sm text-label-sm">Projects</span>
+</a>
+<!-- Skills (Inactive) -->
+<a class="dock-icon-container group" href="#">
+<div class="w-12 h-12 flex items-center justify-center text-on-surface p-2 hover:scale-125 transition-transform duration-200 ease-out origin-bottom">
+<span class="material-symbols-outlined text-3xl">terminal</span>
+</div>
+<span class="dock-tooltip font-label-sm text-label-sm">Skills</span>
+</a>
+<!-- About (Active based on Window content) -->
+<a class="dock-icon-container group relative" href="#">
+<div class="w-12 h-12 flex items-center justify-center text-primary bg-white/20 scale-110 rounded-lg p-2 transition-transform shadow-inner">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<!-- Active dot indicator -->
+<div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></div>
+<span class="dock-tooltip font-label-sm text-label-sm">About</span>
+</a>
+<!-- Contact (Inactive) -->
+<a class="dock-icon-container group" href="#">
+<div class="w-12 h-12 flex items-center justify-center text-on-surface p-2 hover:scale-125 transition-transform duration-200 ease-out origin-bottom">
+<span class="material-symbols-outlined text-3xl">mail</span>
+</div>
+<span class="dock-tooltip font-label-sm text-label-sm">Contact</span>
+</a>
+</nav>
+</div>
+</body></html>

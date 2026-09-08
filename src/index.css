@@ -1,0 +1,3216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  color: #1a1a1a;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.01em;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+img {
+  image-rendering: auto;
+}
+button, a { font: inherit; }
+button { color: inherit; border: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+/* OS Base Shell */
+.os-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  background: #1e3a8a;
+  color: #ffffff;
+}
+
+.wallpaper {
+  position: absolute;
+  inset: 0;
+  background-image: var(--wallpaper);
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================================================================
+   1. Hello Intro Animation Overlay (Apple SVG Stroke Animation)
+   ========================================================================= */
+.hello-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hello-svg-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(500px, 82vw);
+  max-width: 520px;
+}
+
+.hello-svg-art {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.4));
+}
+
+/* =========================================================================
+   2. Clean Top Navigation Bar (Exact Reference Match)
+   ========================================================================= */
+.macx-topbar {
+  height: 26px;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.topbar-username {
+  font-weight: 500;
+  font-size: 12px;
+  color: #ffffff;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background 0.15s ease;
+  cursor: default;
+}
+
+.topbar-username:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  flex-shrink: 0;
+}
+
+.topbar-social-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.topbar-social-btn {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.78);
+  transition: all 0.15s ease;
+}
+
+.topbar-social-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 11px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.topbar-date,
+.topbar-clock {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background 0.15s ease;
+  cursor: default;
+}
+
+.topbar-date {
+  opacity: 0.85;
+}
+
+.topbar-clock {
+  font-weight: 500;
+}
+
+.topbar-date:hover,
+.topbar-clock:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* =========================================================================
+   3. Desktop Canvas & Exact Reference Icons
+   ========================================================================= */
+.desktop-area {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.desktop-icons-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+}
+
+.icon-position {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.macx-desktop-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 86px;
+  background: transparent;
+  padding: 5px 4px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  user-select: none;
+  outline: none;
+}
+
+.macx-desktop-item:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+.macx-desktop-item:active {
+  transform: translateY(-1px) scale(0.96);
+  transition-duration: 0.08s;
+}
+
+.macx-desktop-item.is-selected {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.desktop-icon-visual-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desktop-icon-open-dot {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.95);
+  pointer-events: none;
+}
+
+.desktop-custom-svg {
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+  transition: transform 0.2s ease, filter 0.2s ease;
+  shape-rendering: geometricPrecision;
+}
+
+.macx-desktop-item:hover .desktop-custom-svg {
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+}
+
+/* High-DPI Desktop Image Squircle Thumbnail */
+.desktop-thumb-squircle {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+  background: #0f172a;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.macx-desktop-item:hover .desktop-thumb-squircle {
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.desktop-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  image-rendering: auto;
+}
+
+.desktop-thumb-bezel {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+.desktop-item-label {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+  text-align: center;
+  line-height: 1.25;
+  white-space: pre-line;
+  word-break: break-word;
+  max-width: 96px;
+}
+
+.macx-language-switcher {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px 4px 8px;
+  border-radius: 20px;
+  background: rgba(18, 24, 38, 0.72);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(255, 255, 255, 0.1) inset;
+  user-select: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.macx-language-switcher:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+.lang-globe-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  margin-right: 2px;
+}
+
+.lang-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(0, 0, 0, 0.28);
+  padding: 2px;
+  border-radius: 14px;
+}
+
+.lang-option-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  outline: none;
+  transition: color 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-option-btn.is-active {
+  color: #ffffff;
+}
+
+.lang-option-btn:hover:not(.is-active) {
+  color: #ffffff;
+}
+
+.lang-active-indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.lang-text {
+  position: relative;
+  z-index: 2;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 640px) {
+  .macx-language-switcher {
+    bottom: 74px;
+    left: 12px;
+    padding: 3px 5px 3px 7px;
+  }
+}
+
+/* =========================================================================
+   4. Window Chrome (Clean Translucent macOS Frame)
+   ========================================================================= */
+.window-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.window-layer > * {
+  pointer-events: auto;
+}
+
+.glass-window {
+  width: min(720px, calc(100vw - 48px));
+  height: min(540px, calc(100vh - 140px));
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #1f2937;
+  transition: box-shadow 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+}
+
+.glass-window.is-active {
+  box-shadow: 0 32px 85px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  opacity: 1;
+}
+
+.glass-window.is-inactive {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  opacity: 0.96;
+}
+
+.glass-window.is-inactive .traffic {
+  filter: saturate(50%) opacity(0.85);
+}
+
+.glass-window.is-maximized {
+  width: calc(100vw - 32px) !important;
+  height: calc(100vh - 100px) !important;
+  top: 36px !important;
+  left: 16px !important;
+  transform: none !important;
+  border-radius: 10px;
+}
+
+/* Mobile full-workspace adaptation */
+.glass-window.is-mobile-window {
+  width: calc(100vw - 16px) !important;
+  height: calc(100dvh - 108px) !important;
+  top: 34px !important;
+  left: 8px !important;
+  transform: none !important;
+  border-radius: 12px;
+}
+
+.window-titlebar {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  background: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  cursor: grab;
+  user-select: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  touch-action: none;
+}
+
+.window-titlebar:active {
+  cursor: grabbing;
+}
+
+.traffic-lights {
+  width: 70px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.traffic {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  transition: transform 0.15s;
+  touch-action: manipulation;
+}
+
+.traffic:hover {
+  transform: scale(1.15);
+}
+
+.red { background: #ff5f56; border: 1px solid #e0443e; }
+.yellow { background: #ffbd2e; border: 1px solid #dea123; }
+.green { background: #27c93f; border: 1px solid #1aab29; }
+
+.titlebar-spacer {
+  width: 70px;
+}
+
+.window-titlebar > span {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================================
+   5. About Me Application (Refined Native macOS Portfolio)
+   ========================================================================= */
+.macx-about-container {
+  height: calc(100% - 40px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 28px 28px 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: #ffffff;
+}
+
+.macx-about-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.macx-about-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.macx-about-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+.macx-about-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* 1. Header / Profile Intro Section */
+.macx-about-header {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.macx-profile-photo-wrap {
+  width: 100%;
+}
+
+.macx-profile-photo-img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  display: block;
+}
+
+.macx-profile-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.macx-profile-name {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.macx-profile-headline {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.macx-profile-bio {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.macx-status-row {
+  margin-top: 4px;
+}
+
+.macx-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #047857;
+  background: #ecfdf5;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  border: 1px solid #d1fae5;
+  width: fit-content;
+}
+
+.macx-green-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+}
+
+.macx-intro-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.macx-contact-handles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  font-size: 12.5px;
+}
+
+.macx-handle-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #334155;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.macx-handle-link:hover {
+  color: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* 2. Section Base */
+.macx-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.macx-section-heading {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+/* 3. Services 3-Column Grid */
+.macx-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.macx-service-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.macx-service-card:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.macx-service-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: grid;
+  place-items: center;
+  color: #1e293b;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.macx-service-title {
+  margin: 2px 0 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.macx-service-desc {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+/* 4. Projects 3-Column Grid */
+.macx-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.macx-project-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  outline: none;
+}
+
+.macx-project-card:hover,
+.macx-project-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+  border-color: #cbd5e1;
+}
+
+.macx-project-cover-wrap {
+  width: 100%;
+  height: 115px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0f172a;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.macx-project-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-placeholder-art {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.macx-project-info {
+  padding: 8px 4px 4px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.macx-project-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.macx-project-category {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.macx-section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.macx-section-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #64748b;
+  background: transparent;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.macx-section-action-link:hover {
+  color: #2563eb;
+  background: #f1f5f9;
+}
+
+/* 5. Experience Section (Editorial List) */
+.macx-experience-list {
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.macx-experience-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+}
+
+.macx-experience-item:first-child {
+  padding-top: 0;
+}
+
+.macx-experience-item:last-child {
+  padding-bottom: 0;
+}
+
+.macx-experience-header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.macx-experience-company {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.macx-experience-period {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #64748b;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.macx-experience-role {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #2563eb;
+  margin-top: 2px;
+}
+
+.macx-experience-desc {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #4b5563;
+}
+
+.macx-experience-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin-top: 14px;
+  width: 100%;
+}
+
+/* 6. Organization & Leadership Section (2-Column Grid) */
+.macx-org-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.macx-org-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.macx-org-card:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.macx-org-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.macx-org-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: grid;
+  place-items: center;
+  color: #1e293b;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.macx-org-period {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+  background: #ffffff;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+}
+
+.macx-org-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.macx-org-name {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.macx-org-role {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 1px;
+}
+
+.macx-org-desc {
+  margin: 4px 0 0 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.macx-section-header-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.macx-section-subheading {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* What I Bring to the Table (3-Step Connected Flow) */
+.macx-value-flow-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.macx-value-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+
+.macx-value-card:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.macx-value-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.macx-value-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: grid;
+  place-items: center;
+  color: #0f172a;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.macx-value-step {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+.macx-value-title {
+  margin: 2px 0 0 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.macx-value-desc {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.macx-value-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  padding: 0 2px;
+}
+
+/* My Journey (Connected Stages) */
+.macx-journey-flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  position: relative;
+}
+
+.macx-journey-stage-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.macx-journey-node {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.macx-journey-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.macx-journey-connector {
+  flex: 1;
+  height: 2px;
+  background: #dbeafe;
+  margin-left: 6px;
+}
+
+.macx-journey-content {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+}
+
+.macx-journey-title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+.macx-journey-desc {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #64748b;
+}
+
+/* By the Numbers */
+.macx-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.macx-stat-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  transition: all 0.2s ease;
+}
+
+.macx-stat-card:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.macx-stat-val {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.macx-stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 4px;
+}
+
+.macx-stat-caption {
+  font-size: 10.5px;
+  color: #94a3b8;
+}
+
+/* Proud Moments */
+.macx-proud-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.macx-proud-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.macx-proud-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e1;
+}
+
+.macx-proud-card-emerald { border-top: 3px solid #10b981; }
+.macx-proud-card-blue { border-top: 3px solid #3b82f6; }
+.macx-proud-card-amber { border-top: 3px solid #f59e0b; }
+
+.macx-proud-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.macx-proud-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.macx-proud-period {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.macx-proud-title {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+.macx-proud-org {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.macx-proud-desc {
+  margin: 2px 0 0 0;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: #4b5563;
+}
+
+.macx-proud-mentions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.macx-proud-mention-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #334155;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+/* Currently */
+.macx-currently-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.macx-currently-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.macx-currently-card:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.macx-currently-featured {
+  background: linear-gradient(135deg, #f8fafc, #eff6ff);
+  border-color: #bfdbfe;
+}
+
+.macx-currently-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.macx-currently-icon-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: grid;
+  place-items: center;
+  color: #2563eb;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.macx-currently-category {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.macx-currently-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.macx-currently-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.macx-currently-desc {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #4b5563;
+}
+
+/* Beyond Work */
+.macx-interests-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.macx-interest-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.macx-interest-card:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.macx-interest-emoji {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.macx-interest-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.macx-interest-title {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.macx-interest-desc {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #64748b;
+}
+
+/* =========================================================================
+   Resume Application (macOS Document Previewer)
+   ========================================================================= */
+.macx-resume-container {
+  height: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.macx-resume-toolbar {
+  height: 44px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  flex-shrink: 0;
+}
+
+.macx-resume-doc-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.macx-resume-file-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.macx-resume-doc-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.macx-resume-filename {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.macx-resume-doc-badge {
+  font-size: 10.5px;
+  color: #64748b;
+}
+
+.macx-resume-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.macx-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.macx-resume-btn-secondary {
+  background: #f8fafc;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.macx-resume-btn-secondary:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.macx-resume-btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+  border: 1px solid #1d4ed8;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
+}
+
+.macx-resume-btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.macx-resume-canvas {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background: #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.macx-resume-pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* =========================================================================
+   6. Projects Application (Authentic Finder Layout)
+   ========================================================================= */
+.macx-finder-layout {
+  height: calc(100% - 40px);
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.macx-finder-sidebar {
+  background: #f8fafc;
+  border-right: 1px solid #e2e8f0;
+  padding: 16px 12px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  padding-left: 8px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: transparent;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: left;
+  transition: all 0.15s;
+  width: 100%;
+}
+
+.sidebar-item:hover {
+  background: #e2e8f0;
+}
+
+.sidebar-item.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.sidebar-item.active .sidebar-item-category {
+  color: #bfdbfe;
+}
+
+.sidebar-folder-icon {
+  flex-shrink: 0;
+}
+
+.sidebar-item-text {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-item-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-item-category {
+  font-size: 10px;
+  color: #64748b;
+  display: none;
+}
+
+.macx-finder-main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.finder-breadcrumb-bar {
+  height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid #e2e8f0;
+  background: #ffffff;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.breadcrumb-trail {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.bc-dim { color: #94a3b8; }
+.bc-sep { color: #cbd5e1; }
+.bc-active { color: #0f172a; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.finder-mobile-back-btn {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  font-size: 11px;
+  font-weight: 600;
+  color: #2563eb;
+  margin-right: 6px;
+}
+
+.visit-site-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 11px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.finder-project-canvas {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-lead-desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.project-detail-header-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project-detail-main-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.project-tech-subline {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.project-detail-cover-box {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: #0f172a;
+  max-height: 380px;
+}
+
+.project-detail-cover-img {
+  width: 100%;
+  height: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-case-study-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.project-study-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-study-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.project-study-heading {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.project-study-subheading {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.project-study-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-study-paragraph,
+.project-study-text,
+.project-study-intro {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.project-challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.project-challenge-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.challenge-card-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.challenge-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.challenge-card-title {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.challenge-card-desc {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.project-process-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.project-process-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.process-card-badge {
+  font-size: 11px;
+  font-weight: 800;
+  color: #2563eb;
+  letter-spacing: 0.5px;
+}
+
+.process-card-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.process-card-desc {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.project-process-note {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.project-process-note p {
+  margin: 0;
+  font-size: 11.5px;
+  color: #1e40af;
+  line-height: 1.55;
+}
+
+.project-before-after-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.before-after-card {
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.before-card {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.after-card {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.before-after-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.before-after-badge {
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.badge-before {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.badge-after {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.before-after-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.before-after-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.before-after-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #334155;
+}
+
+.bullet-before {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ef4444;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.bullet-after {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #22c55e;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.project-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.project-insight-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3px;
+  transition: all 0.2s ease;
+}
+
+.project-insight-card:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.insight-card-number {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+.insight-card-val {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 2px 0;
+}
+
+.insight-card-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.insight-card-desc {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #64748b;
+}
+
+.project-highlights-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.project-flow-steps-wrap {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  overflow-x: auto;
+}
+
+.project-flow-steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.project-flow-pill {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e293b;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 4px 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.project-formula-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formula-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+.formula-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2563eb;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.formula-explanation {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.project-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-feature-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.project-feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project-feature-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.project-feature-desc {
+  font-size: 11.5px;
+  color: #475569;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.project-feature-img-wrap {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-feature-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.project-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.meta-box {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.meta-label { font-size: 10px; text-transform: uppercase; color: #64748b; font-weight: 600; }
+.meta-value { font-size: 12px; font-weight: 600; color: #0f172a; }
+
+.project-showcase-card {
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+.showcase-cover-wrap {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.showcase-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.showcase-cover-overlay {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  z-index: 2;
+}
+
+.showcase-banner-top {
+  height: 50px;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.showcase-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.showcase-card-body {
+  padding: 16px;
+}
+
+.showcase-card-body h2 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.showcase-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.showcase-tag {
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  font-size: 11px;
+  color: #475569;
+}
+
+.project-section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-section-block h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.project-points-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project-points-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.point-icon {
+  color: #3b82f6;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* =========================================================================
+   7. Content Panels (Experience, Skills, Contact)
+   ========================================================================= */
+.content-panel {
+  height: calc(100% - 40px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 24px;
+  background: #ffffff;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #2563eb;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.panel-heading h1 {
+  margin: 4px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.project-count {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Experience */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.experience-card {
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.experience-header {
+  margin-bottom: 10px;
+}
+
+.experience-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.experience-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #2563eb;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.experience-card h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.experience-role {
+  font-size: 12px;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.experience-highlights {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.experience-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.highlight-bullet {
+  color: #2563eb;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Skills */
+.skill-category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.skill-category-card {
+  padding: 16px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.skill-category-title {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.skill-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-chip {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  font-size: 11px;
+  font-weight: 500;
+  color: #334155;
+}
+
+/* Contact */
+.contact-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-copy h1 {
+  margin: 6px 0 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+}
+
+.intro {
+  margin: 0 0 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  gap: 16px;
+}
+
+.contact-info-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #334155;
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #059669;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.status-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+/* =========================================================================
+   8. Authentic Macxfolio Glass Dock (Exact Reference Dimensions)
+   ========================================================================= */
+.macx-dock-wrap {
+  position: fixed;
+  z-index: 90;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.macx-dock {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: rgba(18, 24, 38, 0.72);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 0.5px rgba(255, 255, 255, 0.12) inset;
+  position: relative;
+  overflow: visible;
+}
+
+.macx-dock-item-wrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.macx-dock-tooltip {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  padding: 3px 9px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.01em;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.dock-tooltip-arrow {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  background: #0f172a;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.macx-dock-item {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  touch-action: manipulation;
+  outline: none;
+}
+
+.dock-icon-art {
+  display: grid;
+  place-items: center;
+}
+
+.dock-custom-svg {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.28));
+  border-radius: 11px;
+}
+
+.dock-dot {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.95);
+  pointer-events: none;
+}
+
+/* =========================================================================
+   9. Intentional Responsive Design & Media Queries
+   ========================================================================= */
+
+/* =========================================================================
+   7. Responsive Layouts & Breakpoint Rules
+   ========================================================================= */
+
+/* Large Desktop (>= 1920px) */
+@media (min-width: 1920px) {
+  .macx-about-container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet Landscape & Laptops (1024px–768px) */
+@media (max-width: 1024px) {
+  .macx-about-header {
+    grid-template-columns: 160px 1fr;
+    gap: 20px;
+  }
+  .macx-profile-photo-img {
+    height: 180px;
+  }
+  .macx-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .macx-journey-flow {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .macx-proud-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .macx-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .macx-interests-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .glass-window:not(.is-maximized) {
+    max-width: calc(100vw - 32px);
+    max-height: calc(100dvh - 100px);
+  }
+}
+
+/* Mobile & Tablet Portrait (<= 768px) */
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  .topbar-date {
+    display: none;
+  }
+
+  /* Desktop icons become an accessible responsive homescreen grid on mobile */
+  .desktop-icons-container {
+    display: grid !important;
+    position: absolute;
+    inset: 36px 0 76px 0;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 16px 8px;
+    padding: 16px 12px 32px 12px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    align-content: start;
+    justify-items: center;
+    pointer-events: auto;
+    z-index: 10;
+  }
+
+  .icon-position {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .macx-desktop-item {
+    width: 76px;
+    padding: 5px 3px;
+    gap: 4px;
+  }
+
+  .macx-desktop-item .desktop-item-label {
+    font-size: 11px;
+    line-height: 1.2;
+    max-width: 76px;
+  }
+
+  .macx-language-switcher {
+    bottom: 74px;
+    left: 12px;
+    z-index: 15;
+    transform: scale(0.92);
+    transform-origin: bottom left;
+  }
+
+  /* Window stretches into clean mobile application sheet */
+  .glass-window {
+    width: calc(100vw - 16px) !important;
+    height: calc(100dvh - 96px) !important;
+    top: 36px !important;
+    left: 8px !important;
+    transform: none !important;
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    z-index: 50;
+  }
+
+  .window-titlebar {
+    height: 38px;
+    padding: 0 10px;
+  }
+
+  .traffic-lights {
+    width: 60px;
+    gap: 6px;
+  }
+
+  .titlebar-spacer {
+    width: 60px;
+  }
+
+  /* About App responsive */
+  .macx-about-container {
+    padding: 16px 14px 28px 14px;
+    gap: 20px;
+  }
+
+  .macx-about-header {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .macx-profile-photo-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .macx-profile-photo-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 16px;
+  }
+
+  .macx-profile-intro {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .macx-profile-name {
+    font-size: clamp(20px, 5.5vw, 24px);
+  }
+
+  .macx-contact-handles {
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .macx-services-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .macx-value-flow-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .macx-value-arrow {
+    display: none;
+  }
+
+  .macx-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .macx-journey-flow {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .macx-journey-node {
+    display: none;
+  }
+
+  .macx-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .macx-experience-list {
+    padding: 14px 14px;
+  }
+
+  .macx-experience-header-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .macx-org-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .macx-proud-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .macx-currently-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .macx-interests-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Finder / Projects mobile list-to-detail navigation */
+  .macx-finder-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .macx-finder-layout.mobile-list-active .macx-finder-sidebar {
+    display: block;
+  }
+
+  .macx-finder-layout.mobile-list-active .macx-finder-main {
+    display: none;
+  }
+
+  .macx-finder-layout.mobile-detail-active .macx-finder-sidebar {
+    display: none;
+  }
+
+  .macx-finder-layout.mobile-detail-active .macx-finder-main {
+    display: flex;
+  }
+
+  .finder-mobile-back-btn {
+    display: inline-flex;
+  }
+
+  .bc-desktop-only {
+    display: none;
+  }
+
+  .sidebar-item {
+    padding: 10px 12px;
+  }
+
+  .sidebar-item-category {
+    display: block;
+  }
+
+  .project-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-challenge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-before-after-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-insights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .finder-project-canvas {
+    padding: 14px;
+  }
+
+  /* Contact App */
+  .contact-panel {
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .contact-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Dock scaling for compact touch screens */
+  .macx-dock-wrap {
+    bottom: 8px;
+    padding: 0 8px;
+    max-width: 100vw;
+  }
+
+  .macx-dock {
+    gap: clamp(4px, 1.5vw, 8px);
+    padding: 4px clamp(6px, 2vw, 10px);
+    max-width: calc(100vw - 16px);
+    border-radius: 18px;
+  }
+
+  .dock-icon-art {
+    width: clamp(38px, 9vw, 46px);
+    height: clamp(38px, 9vw, 46px);
+  }
+}
+
+/* Extra small mobile screens (<= 380px) */
+@media (max-width: 380px) {
+  .desktop-icons-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 6px;
+    padding: 12px 8px 24px 8px;
+  }
+
+  .macx-dock {
+    gap: 4px;
+    padding: 3px 6px;
+  }
+
+  .dock-icon-art {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* =========================================================================
+   8. Life Dump — Gallery & Lightbox
+   ========================================================================= */
+.gallery-panel-container {
+  height: calc(100% - 40px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 28px 32px;
+  background: #ffffff;
+  position: relative;
+}
+
+.gallery-app-header {
+  margin-bottom: 24px;
+}
+
+.gallery-app-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Editorial Masonry Flow using CSS Columns */
+.gallery-masonry-flow {
+  columns: 3;
+  column-gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .gallery-masonry-flow {
+    columns: 2;
+    column-gap: 16px;
+  }
+  .gallery-panel-container {
+    padding: 22px 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .gallery-masonry-flow {
+    columns: 1;
+    column-gap: 14px;
+  }
+  .gallery-panel-container {
+    padding: 16px 14px;
+  }
+}
+
+.gallery-card-wrapper {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.gallery-photo-card {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f1f5f9;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-photo-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-photo-card:hover .gallery-photo-img {
+  transform: scale(1.03);
+}
+
+.gallery-photo-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35) 0%, transparent 60%);
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 14px;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.gallery-photo-card:hover .gallery-photo-hover-overlay {
+  opacity: 1;
+}
+
+.gallery-expand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Lightbox Modal */
+.gallery-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.86);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  user-select: none;
+}
+
+.gallery-lightbox-toolbar {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 100000;
+}
+
+.gallery-lightbox-counter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.gallery-lightbox-counter .divider {
+  opacity: 0.5;
+}
+
+.gallery-lightbox-counter .total-num {
+  opacity: 0.7;
+}
+
+.gallery-lightbox-close-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gallery-lightbox-close-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+  transform: scale(1.08);
+}
+
+.gallery-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 100000;
+}
+
+.gallery-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.gallery-nav-btn.prev-btn {
+  left: 24px;
+}
+
+.gallery-nav-btn.next-btn {
+  right: 24px;
+}
+
+.gallery-lightbox-image-container {
+  max-width: min(88vw, 1050px);
+  max-height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-lightbox-img {
+  max-width: 100%;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .gallery-nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .gallery-nav-btn.prev-btn {
+    left: 10px;
+  }
+  .gallery-nav-btn.next-btn {
+    right: 10px;
+  }
+  .gallery-lightbox-toolbar {
+    top: 14px;
+    right: 14px;
+  }
+}
+
+/* =========================================================================
+   10. Accessibility & Reduced Motion
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .macx-desktop-item:hover,
+  .macx-desktop-item:active {
+    transform: none !important;
+  }
+
+  .hello-overlay {
+    display: none !important;
+  }
+}
