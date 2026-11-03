@@ -30,9 +30,9 @@ export const resumeData = {
 
 export const profile: ProfileData = {
   name: 'Muhammad Assegaf',
-  role: 'Data Analyst & Information Systems Graduate',
+  role: 'Product Engineer, AI-Powered Business Systems Developer & Data Analyst',
   education: 'Information Systems graduate from Universitas Negeri Semarang',
-  bio: "I'm Muhammad Assegaf, an Information Systems graduate with a strong interest in Data Analytics and digital product development. I enjoy turning complex data into clear insights, visualizations, and solutions that support better decision-making.",
+  bio: "I'm Muhammad Assegaf, an Information Systems graduate focused on building digital products and AI-powered business solutions. I develop e-commerce platforms, intelligent recommendation systems, and business applications that solve real-world problems. Combining product thinking, UI/UX, and software development, I leverage AI coding tools to build, iterate, and improve scalable digital solutions.",
   email: 'massegaf208@gmail.com',
   linkedin: 'linkedin.com/in/madsegaf',
   linkedinUrl: 'https://linkedin.com/in/madsegaf',
