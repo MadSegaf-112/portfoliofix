@@ -86,6 +86,7 @@ export interface ProjectFeatureShowcase {
   description: string;
   image?: string;
   imageAlt?: string;
+  video?: string;
 }
 
 export interface ProjectCaseStudy {

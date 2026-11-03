@@ -364,6 +364,20 @@ export const getLocalizedCurrentActivities = (lang: 'EN' | 'ID'): CurrentActivit
 export const getLocalizedExperiences = (lang: 'EN' | 'ID'): ExperienceItem[] => {
   if (lang === 'ID') {
     return experiences.map((exp) => {
+      if (exp.company === 'Abna Parfumatique') {
+        return {
+          ...exp,
+          role: 'Product Engineer',
+          description:
+            'Mengembangkan produk digital dan sistem internal untuk Abna Parfumatique, termasuk ABNA Commerce, ABNA PICKS, sistem CRM, dan payroll. Memanfaatkan AI coding tools seperti Codex dan Claude Code sebagai partner dalam proses pengembangan produk.',
+          highlights: [
+            'Mengembangkan ABNA Commerce, platform e-commerce untuk bisnis parfum.',
+            'Membangun ABNA PICKS, platform rekomendasi parfum berbasis AI dan customer intelligence.',
+            'Mengembangkan sistem pendukung bisnis, termasuk CRM dan payroll.',
+            'Memanfaatkan Codex dan Claude Code sebagai partner coding berbasis AI untuk implementasi, iterasi, dan debugging.',
+          ],
+        };
+      }
       if (exp.company.includes('Pertamina')) {
         return {
           ...exp,

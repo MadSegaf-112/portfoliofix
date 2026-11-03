@@ -525,9 +525,21 @@ export const ProjectsApp: React.FC = () => {
                           <h4 className="project-feature-title">{feat.title}</h4>
                           <p className="project-feature-desc">{feat.description}</p>
                         </div>
-                        {feat.image && (
+                        {(feat.image || feat.video) && (
                           <div className="project-feature-img-wrap">
-                            <img src={feat.image} alt={feat.imageAlt || feat.title} className="project-feature-img" />
+                            {feat.video ? (
+                              <video
+                                controls
+                                playsInline
+                                preload="metadata"
+                                poster={feat.image}
+                                className="project-feature-img"
+                              >
+                                <source src={feat.video} type="video/mp4" />
+                              </video>
+                            ) : (
+                              <img src={feat.image} alt={feat.imageAlt || feat.title} className="project-feature-img" />
+                            )}
                           </div>
                         )}
                       </div>

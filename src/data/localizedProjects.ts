@@ -55,28 +55,42 @@ export const getLocalizedProjects = (lang: 'EN' | 'ID'): Project[] => {
                 featureShowcases: {
                   heading: 'Galeri Proyek & Pengalaman Visual',
                   intro:
-                    'Penelusuran visual dari pengalaman inti ABNA PICKS, mulai dari konsultasi pelanggan 9 langkah terpandu hingga hasil rekomendasi personal dan dashboard customer intelligence.',
+                    'Jelajahi tampilan terbaru ABNA PICKS melalui screenshot konsultasi dan demo produk lengkap.',
                   features: [
                     {
-                      title: '1. Sesi Kuis — Konsultasi Interaktif 9 Langkah',
+                      title: '1. Konsultasi — Pilih Karaktermu',
                       description:
-                        'Pelanggan dipandu melalui alur konsultasi terarah untuk mendefinisikan profil demografis, anggaran, suasana hati, rumpun aroma, intensitas, atmosfer, dan acara penggunaan.',
-                      image: '/images/quiz session abna picks.png',
-                      imageAlt: 'ABNA PICKS - Antarmuka Konsultasi Kuis 9 Langkah',
+                        'Kuis terpandu dimulai dengan menanyakan kesan yang ingin ditampilkan pelanggan melalui parfumnya.',
+                      image: '/images/abna%20picks/quiz%201.jpeg',
+                      imageAlt: 'Konsultasi ABNA PICKS menanyakan kesan yang ingin ditampilkan pelanggan',
                     },
                     {
-                      title: '2. Output Rekomendasi Personal',
+                      title: '2. Konsultasi — Pilih Aroma Favorit',
                       description:
-                        'Menampilkan Top 3 parfum rekomendasi teratas yang dievaluasi terhadap katalog 444 parfum, lengkap dengan persentase kecocokan, detail aroma (notes), dan alasan personalisasi kecocokan.',
-                      image: '/images/output abna picks.png',
-                      imageAlt: 'ABNA PICKS - Hasil Rekomendasi 3 Parfum Teratas',
+                        'Pelanggan memilih keluarga aroma yang paling sesuai dengan preferensi pribadi mereka.',
+                      image: '/images/abna%20picks/quiz%202.jpeg',
+                      imageAlt: 'Konsultasi ABNA PICKS dengan pilihan aroma floral, woody, citrus, dan spicy',
                     },
                     {
-                      title: '3. Dashboard Customer Intelligence',
+                      title: '3. Konsultasi — Pilih Momenmu',
                       description:
-                        'Mentransformasi data konsultasi menjadi wawasan bisnis nyata melalui persona pelanggan, segmentasi usia × pekerjaan, analitik drop-off corong (funnel), dan metrik performa parfum.',
-                      image: '/images/dashboard abna picks.png',
-                      imageAlt: 'ABNA PICKS - Dashboard Customer Intelligence & Analitik Bisnis',
+                        'Konsultasi menangkap momen dan aktivitas yang ingin disesuaikan pelanggan dengan parfumnya.',
+                      image: '/images/abna%20picks/quiz%203.jpeg',
+                      imageAlt: 'Konsultasi ABNA PICKS dengan pilihan momen dan aktivitas penggunaan parfum',
+                    },
+                    {
+                      title: '4. Rekomendasi Personal',
+                      description:
+                        'Setelah konsultasi, pelanggan menerima rekomendasi parfum dengan skor kecocokan dan penjelasan profil aromanya.',
+                      image: '/images/abna%20picks/quiz%204.jpeg',
+                      imageAlt: 'Rekomendasi parfum ABNA PICKS dengan skor kecocokan 95 persen',
+                    },
+                    {
+                      title: '5. Demo Produk ABNA PICKS',
+                      description:
+                        'Tonton demo untuk melihat pengalaman ABNA PICKS secara langsung.',
+                      video: '/images/abna%20picks/demo%20picks.mp4',
+                      image: '/images/abna%20picks/hero%20abnapicks.jpeg',
                     },
                   ],
                 },
@@ -201,6 +215,128 @@ export const getLocalizedProjects = (lang: 'EN' | 'ID'): Project[] => {
                   heading: 'Lebih dari Sekadar Alat Rekomendasi Parfum',
                   content:
                     'ABNA PICKS membuktikan bagaimana sistem rekomendasi dapat memberikan nilai tambah yang jauh lebih tinggi ketika pengalaman pelanggan dan kecerdasan bisnis dirancang secara terpadu.\n\nProyek ini tidak berhenti pada menjawab pertanyaan, "Parfum mana yang harus saya beli?"\n\nTetapi juga menjawab pertanyaan strategis bisnis di balik setiap rekomendasi:\n\nSiapa pelanggan kita?\n\nApa preferensi aroma mereka?\n\nDi langkah mana pelanggan mengalami drop-off?\n\nParfum mana yang memiliki performa paling unggul?\n\nSegmen audiens mana yang menunjukkan ketertarikan terkuat?\n\nDengan menghubungkan seluruh dimensi ini dalam satu platform terpadu, ABNA PICKS menjadi fondasi customer intelligence yang berpusat pada pengalaman penemuan aroma.',
+                },
+              }
+            : undefined,
+        };
+      case 'abna-commerce':
+        return {
+          ...project,
+          title: 'ABNA Commerce',
+          subtitle: 'Platform E-commerce Full-Stack untuk Retail Parfum · Dalam Proses',
+          category: 'Pengembangan Web / Produk',
+          role: 'Product Engineer · Pengembangan Full-Stack · AI-Assisted Development',
+          projectType: 'Platform E-commerce Single-Seller',
+          year: '2026',
+          client: 'ABNA Parfum',
+          description:
+            'ABNA Commerce adalah platform e-commerce single-seller yang sedang dikembangkan untuk ABNA Parfum. Platform ini dirancang untuk menghadirkan pengalaman belanja parfum online yang lengkap sekaligus mendukung kebutuhan operasional bisnis.\n\nBerbeda dari katalog e-commerce umum, ABNA Commerce memiliki fitur pencarian dan penyaringan produk berbasis kebutuhan pelanggan, seperti family fragrance, top notes, middle notes, base notes, occasion, dan gender.\n\nPlatform ini juga mencakup halaman detail produk dengan pemilihan varian, alur checkout, integrasi pembayaran melalui Midtrans, serta integrasi pengiriman melalui Biteship.\n\nProyek ini masih dalam tahap pengembangan dan disajikan sebagai inisiatif product engineering yang sedang berjalan, bukan produk yang sudah diluncurkan sepenuhnya.',
+          highlights: [
+            'Pengalaman penemuan produk berbasis parfum dengan filter keluarga aroma, notes, occasion, dan gender.',
+            'Flow detail produk dan pemilihan varian yang dirancang untuk mendukung keputusan pembelian parfum.',
+            'Alur checkout, pembayaran, dan pengiriman yang difokuskan untuk model e-commerce single-seller.',
+            'Fondasi product engineering yang dibangun dari aturan bisnis, logika produk, dan perilaku sistem yang andal.',
+            'Status proyek saat ini masih Dalam Proses dan belum dipresentasikan sebagai produk yang sudah diluncurkan.',
+          ],
+          caseStudy: project.caseStudy
+            ? {
+                ...project.caseStudy,
+                overview: {
+                  heading: 'Gambaran Umum',
+                  content:
+                    'ABNA Commerce adalah platform e-commerce single-seller yang sedang dikembangkan untuk ABNA Parfum. Platform ini dirancang untuk menghadirkan pengalaman belanja parfum online yang lengkap sekaligus mendukung kebutuhan operasional bisnis.\n\nBerbeda dari katalog e-commerce umum, ABNA Commerce memiliki fitur pencarian dan penyaringan produk berbasis kebutuhan pelanggan, seperti family fragrance, top notes, middle notes, base notes, occasion, dan gender.\n\nPlatform ini juga mencakup halaman detail produk dengan pemilihan varian, alur checkout, integrasi pembayaran melalui Midtrans, serta integrasi pengiriman melalui Biteship.\n\nProyek ini masih dalam tahap pengembangan dan harus dipahami sebagai inisiatif product engineering aktif, bukan platform komersial yang sudah diluncurkan sepenuhnya.',
+                  workflowSteps: [
+                    'Penemuan Produk',
+                    'Pemilihan Varian',
+                    'Checkout & Pembayaran',
+                    'Logistik Pengiriman',
+                    'Operasional Commerce',
+                  ],
+                },
+                featureShowcases: {
+                  heading: 'Pengalaman Produk & Fitur Utama',
+                  intro:
+                    'Pengalaman utama berfokus pada penemuan produk berbasis parfum, pemahaman produk yang jelas, serta alur checkout yang konsisten dengan perjalanan pembelian konsumen premium.',
+                  features: [
+                    {
+                      title: '1. Penemuan Produk & Katalog Parfum',
+                      description:
+                        'Pelanggan dapat menjelajahi katalog parfum dengan filter produk dan tampilan koleksi yang jelas untuk membantu menemukan aroma sesuai preferensi mereka.',
+                      image: '/images/abna%20commerce/abna%20katalog.png',
+                      imageAlt: 'Katalog ABNA Parfum dengan filter aroma dan kartu produk',
+                    },
+                    {
+                      title: '2. Bagian Produk Pilihan',
+                      description:
+                        'Halaman storefront menampilkan koleksi parfum pilihan dan rekomendasi produk sebagai bagian dari pengalaman belanja.',
+                      image: '/images/abna%20commerce/abna%20product%20section.png',
+                      imageAlt: 'Bagian produk pilihan pada storefront ABNA',
+                    },
+                    {
+                      title: '3. Detail Produk & Pemilihan Varian',
+                      description:
+                        'Halaman produk menyatukan detail parfum, harga, dan pilihan varian untuk membantu pelanggan mengambil keputusan pembelian.',
+                      image: '/images/abna%20commerce/abna%20product%20detail.png',
+                      imageAlt: 'Halaman detail produk ABNA Parfum dengan pilihan varian',
+                    },
+                    {
+                      title: '4. Notes Aroma & Cerita Produk',
+                      description:
+                        'Pengalaman produk juga menjelaskan lapisan aroma dan membantu pelanggan memahami karakter sebuah parfum.',
+                      image: '/images/abna%20commerce/abna%20product%20detail%202.png',
+                      imageAlt: 'Notes aroma dan informasi produk di ABNA Commerce',
+                    },
+                    {
+                      title: '5. Keranjang & Ringkasan Belanja',
+                      description:
+                        'Keranjang membantu pelanggan meninjau produk dan jumlah yang dipilih sebelum melanjutkan ke checkout.',
+                      image: '/images/abna%20commerce/abna%20cart.png',
+                      imageAlt: 'Keranjang ABNA Commerce dengan produk pilihan dan ringkasan checkout',
+                    },
+                  ],
+                },
+                technicalArchitecture: {
+                  heading: 'Implementasi Teknis',
+                  content:
+                    'ABNA Commerce sedang dikembangkan sebagai produk commerce full-stack modern berbasis Next.js, React, TypeScript, dan Tailwind CSS. Frontend dirancang untuk mendukung pengalaman produk yang kuat, sementara Supabase dan PostgreSQL menjadi fondasi data yang andal untuk katalog, cart, pesanan, dan logika operasional.\n\nMidtrans dan Biteship diintegrasikan untuk mendukung alur pembayaran dan pengiriman, sementara pendekatan engineering dibentuk oleh kebutuhan produk, aturan bisnis, dan batasan implementasi yang relevan. Sistem ini dirancang agar tetap mudah dipelihara seiring berkembangnya kebutuhan bisnis.',
+                  tags: [
+                    {
+                      category: 'Frontend',
+                      items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+                    },
+                    {
+                      category: 'Data & Backend',
+                      items: ['Supabase', 'PostgreSQL', 'Logika produk server-side'],
+                    },
+                    {
+                      category: 'Commerce & Operasional',
+                      items: ['Midtrans', 'Biteship', 'Alur checkout', 'Logika pengiriman'],
+                    },
+                    {
+                      category: 'Workflow Product Engineering',
+                      items: ['Definisi aturan bisnis', 'Implementasi berbantuan AI', 'Validasi produk'],
+                    },
+                  ],
+                },
+                roleOverview: {
+                  heading: 'Peran Saya',
+                  content:
+                    'Product Engineer · Pengembangan Full-Stack · AI-Assisted Product Engineering\n\nSaya bekerja sebagai Product Engineer yang bertanggung jawab dalam membentuk ABNA Commerce dari arah produk hingga implementasi. Peran saya mencakup pemahaman kebutuhan bisnis dan pengguna, penerjemahan kebutuhan menjadi alur produk dan requirement teknis, desain pengalaman pengguna, serta pembangunan platform dengan Next.js, React, TypeScript, dan Supabase.',
+                  responsibilities: [
+                    'Menentukan arah produk dan kebutuhan bisnis untuk pengalaman commerce.',
+                    'Menerjemahkan kebutuhan operasional ke dalam alur UX, struktur antarmuka, dan aturan bisnis.',
+                    'Merancang penemuan produk, halaman detail, checkout, dan keputusan fulfillment.',
+                    'Mengimplementasikan aplikasi menggunakan Next.js, React, TypeScript, dan Supabase.',
+                    'Menetapkan aturan engineering, kendala teknis, dan instruksi untuk workflow coding berbantuan AI.',
+                    'Memvalidasi kualitas implementasi melalui review produk, pengujian, dan debugging bersama Codex serta alat pendukung lainnya.',
+                  ],
+                  concludingNote:
+                    'Proyek ini mencerminkan pendekatan product engineering yang menggabungkan pemikiran produk, implementasi teknis, logika bisnis, dan pengembangan berbantuan AI dalam satu workflow iteratif.',
+                },
+                conclusion: {
+                  heading: 'Kesimpulan',
+                  content:
+                    'ABNA Commerce sedang dikembangkan sebagai platform e-commerce yang berfokus pada penemuan parfum, kepercayaan produk, dan kejelasan operasional.\n\nProyek ini masih dalam tahap pengembangan, dengan fokus utama pada pembangunan fondasi produk yang tepat, alur komersial yang solid, dan keputusan pengalaman yang sesuai sebelum dipresentasikan sebagai produk yang siap diluncurkan.\n\nTujuannya adalah menciptakan pengalaman commerce yang andal, terarah secara produk, dan mampu mendukung tujuan bisnis ABNA Parfum sekaligus memberikan perjalanan belanja yang jelas dan menarik bagi pelanggan.',
                 },
               }
             : undefined,

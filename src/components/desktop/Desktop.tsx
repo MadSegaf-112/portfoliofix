@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import type { AppId, WindowPosition, WindowState } from '@/types';
 import { WindowLayer } from '@/components/window/WindowLayer';
 import {
+  AbnaCommerceThumbnailArt,
   AboutMeDesktopIcon,
   AbnaPicksThumbnailArt,
   AsusFitsForUThumbnailArt,
@@ -13,7 +14,6 @@ import {
   GoogleAdsAnalyticsThumbnailArt,
   GoogleAdsDashboardThumbnailArt,
   FypMediaThumbnailArt,
-  InterstellarThumbnailArt,
   MusicDesktopIcon,
   ResumeDesktopIcon,
   ZenHomeThumbnailArt,
@@ -69,9 +69,11 @@ export const Desktop: React.FC<DesktopProps> = ({
 
   const handleOpenProject = (projectId: string) => {
     onOpenWindow('projects');
-    window.dispatchEvent(
-      new CustomEvent('select-portfolio-project', { detail: projectId })
-    );
+    window.setTimeout(() => {
+      window.dispatchEvent(
+        new CustomEvent('select-portfolio-project', { detail: projectId })
+      );
+    }, 0);
   };
 
   // Centralized Desktop Items Configuration
@@ -114,6 +116,15 @@ export const Desktop: React.FC<DesktopProps> = ({
       icon: AbnaPicksThumbnailArt,
       type: 'project',
       targetProjectId: 'abna-picks',
+    },
+    {
+      id: 'abna-commerce',
+      title: 'ABNA Commerce',
+      label: 'ABNA Commerce',
+      position: { top: '115px', right: '18%' },
+      icon: AbnaCommerceThumbnailArt,
+      type: 'project',
+      targetProjectId: 'abna-commerce',
     },
     {
       id: 'music',
@@ -174,15 +185,6 @@ export const Desktop: React.FC<DesktopProps> = ({
       targetProjectId: 'zenhome',
     },
     {
-      id: 'interstellar',
-      title: 'Interstellar',
-      label: 'Interstellar',
-      position: { bottom: '180px', left: '45%' },
-      icon: InterstellarThumbnailArt,
-      type: 'app',
-      targetApp: 'about',
-    },
-    {
       id: 'fyp-media',
       title: 'FYP Media',
       label: 'FYP Media',
@@ -191,16 +193,6 @@ export const Desktop: React.FC<DesktopProps> = ({
       type: 'project',
       targetProjectId: 'fyp-media-news',
     },
-    {
-      id: 'herding-cats',
-      title: 'Herding cats',
-      label: 'Herding cats',
-      position: { bottom: '205px', right: '25%' },
-      icon: FolderDesktopIcon,
-      type: 'app',
-      targetApp: 'projects',
-    },
-
     // ================= BOTTOM ROW =================
     {
       id: 'about-me',
@@ -213,8 +205,8 @@ export const Desktop: React.FC<DesktopProps> = ({
     },
     {
       id: 'resources',
-      title: t('desktop.resources'),
-      label: t('desktop.resources'),
+      title: t('experience.roles'),
+      label: t('experience.roles'),
       position: { bottom: '130px', right: '9%' },
       icon: FolderDesktopIcon,
       type: 'app',

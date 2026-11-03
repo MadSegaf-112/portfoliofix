@@ -246,8 +246,15 @@ export const AsusFitsForUThumbnailArt: React.FC = () => (
 // 7. ABNA PICKS Thumbnail
 export const AbnaPicksThumbnailArt: React.FC = () => (
   <ProjectThumbnailCard
-    image="/images/landing page abnapicks.png"
+    image="/images/abna%20picks/hero%20abnapicks.jpeg"
     clipId="thumb-abnapicks"
+  />
+);
+
+export const AbnaCommerceThumbnailArt: React.FC = () => (
+  <ProjectThumbnailCard
+    image="/images/abna%20commerce/abna%20hero%20section.png"
+    clipId="thumb-abnacommerce"
   />
 );
 
@@ -374,4 +381,3 @@ export const GalleryDesktopIcon: React.FC = () => (
     <rect x="2" y="2" width="60" height="60" rx="13" fill="url(#photosDeskGlow)" />
   </svg>
 );
-

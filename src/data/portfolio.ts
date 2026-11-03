@@ -25,7 +25,7 @@ import type {
 
 export const resumeData = {
   file: '/document/CV_MUHAMMAD_ASSEGAF_eng.pdf',
-  downloadName: 'CV_MUHAMMAD_ASSEGAF_eng.pdf',
+  downloadName: 'CV_MUHAMMAD_ASSEGAF_2026.pdf',
 };
 
 export const profile: ProfileData = {
@@ -317,6 +317,18 @@ export const dockAppIds: AppId[] = [
 
 export const experiences: ExperienceItem[] = [
   {
+    company: 'Abna Parfumatique',
+    role: 'Product Engineer',
+    description:
+      'Develops digital products and internal systems for Abna Parfumatique, including ABNA Commerce, ABNA PICKS, CRM, and payroll systems. Uses AI coding tools such as Codex and Claude Code as development partners throughout product implementation.',
+    highlights: [
+      'Develops ABNA Commerce, an e-commerce platform for the fragrance business.',
+      'Builds ABNA PICKS, an AI-powered fragrance recommendation and customer intelligence platform.',
+      'Develops supporting business systems, including CRM and payroll.',
+      'Uses Codex and Claude Code as AI coding partners for implementation, iteration, and debugging.',
+    ],
+  },
+  {
     company: 'PT Pertamina Patra Niaga Region Jawa Tengah',
     role: 'Data Analyst & Web Developer',
     period: '2023 – 2024',
@@ -457,13 +469,14 @@ export const projects: Project[] = [
     client: 'ABNA PICKS',
     description:
       'ABNA PICKS is an AI-powered fragrance recommendation and customer intelligence platform designed to help customers discover perfumes that match their personal characteristics, scent preferences, mood, budget, and occasion.\n\nThe system combines a 10-dimensional recommendation engine, interactive customer consultation, analytics, and business intelligence into a single platform.\n\nCustomers complete a 9-step interactive consultation covering demographic profile, budget, mood, scent family, intensity, atmosphere, and occasion. The system then analyzes their preferences and generates the Top 3 most relevant fragrance recommendations with match percentages, fragrance notes, and personalized explanations.\n\nOn the business side, every consultation is converted into structured analytics data that can be used to understand customer behavior, fragrance performance, customer segmentation, preference patterns, and consultation funnel drop-offs.',
-    coverImage: '/images/landing page abnapicks.png',
-    image: '/images/landing page abnapicks.png',
+    coverImage: '/images/abna%20picks/hero%20abnapicks.jpeg',
+    image: '/images/abna%20picks/hero%20abnapicks.jpeg',
     images: [
-      '/images/landing page abnapicks.png',
-      '/images/quiz session abna picks.png',
-      '/images/output abna picks.png',
-      '/images/dashboard abna picks.png',
+      '/images/abna%20picks/hero%20abnapicks.jpeg',
+      '/images/abna%20picks/quiz%201.jpeg',
+      '/images/abna%20picks/quiz%202.jpeg',
+      '/images/abna%20picks/quiz%203.jpeg',
+      '/images/abna%20picks/quiz%204.jpeg',
     ],
     coverPlaceholder: 'fragrance',
     visitUrl: 'https://abnapicks.netlify.app/',
@@ -531,28 +544,42 @@ export const projects: Project[] = [
       featureShowcases: {
         heading: 'Project Gallery & Visual Experience',
         intro:
-          'A walkthrough of the core ABNA PICKS product experience from the 9-step customer consultation to personalized recommendations and the customer intelligence dashboard.',
+          'Explore the latest ABNA PICKS interface through updated consultation screenshots and a complete product demo.',
         features: [
           {
-            title: '1. Quiz Session — Interactive 9-Step Consultation',
+            title: '1. Consultation — Choose Your Character',
             description:
-              'Customers go through a guided consultation covering demographic profile, budget, mood, scent family, intensity, atmosphere, and occasion to capture their comprehensive fragrance preference profile.',
-            image: '/images/quiz session abna picks.png',
-            imageAlt: 'ABNA PICKS - Interactive 9-Step Customer Consultation Interface',
+              'The guided quiz starts by asking customers what impression they want their fragrance to make.',
+            image: '/images/abna%20picks/quiz%201.jpeg',
+            imageAlt: 'ABNA PICKS consultation asking what impression the customer wants to make',
           },
           {
-            title: '2. Personalized Recommendation Output',
+            title: '2. Consultation — Choose Your Scent',
             description:
-              'Displays the Top 3 recommended fragrances evaluated against the 444 fragrance catalog, complete with match scores, fragrance notes, and personalized "why this matches you" explanations.',
-            image: '/images/output abna picks.png',
-            imageAlt: 'ABNA PICKS - Personalized Top 3 Fragrance Recommendation Output',
+              'Customers choose the fragrance families that best match their personal preferences.',
+            image: '/images/abna%20picks/quiz%202.jpeg',
+            imageAlt: 'ABNA PICKS consultation showing floral, woody, citrus, and spicy scent choices',
           },
           {
-            title: '3. Customer Intelligence Dashboard',
+            title: '3. Consultation — Choose Your Occasion',
             description:
-              'Transforms consultation data into actionable business insights through customer personas, age × occupation segmentation, funnel drop-off analytics, and fragrance performance metrics.',
-            image: '/images/dashboard abna picks.png',
-            imageAlt: 'ABNA PICKS - Customer Intelligence & Analytics Dashboard',
+              'The consultation captures the moments and activities customers want their perfume to suit.',
+            image: '/images/abna%20picks/quiz%203.jpeg',
+            imageAlt: 'ABNA PICKS consultation showing occasions and activities for wearing perfume',
+          },
+          {
+            title: '4. Personalized Recommendation',
+            description:
+              'After the consultation, customers receive a fragrance match with a compatibility score and an explanation of the scent profile.',
+            image: '/images/abna%20picks/quiz%204.jpeg',
+            imageAlt: 'ABNA PICKS personalized fragrance recommendation with a 95 percent match score',
+          },
+          {
+            title: '5. ABNA PICKS Product Demo',
+            description:
+              'Watch a walkthrough of the ABNA PICKS experience.',
+            video: '/images/abna%20picks/demo%20picks.mp4',
+            image: '/images/abna%20picks/hero%20abnapicks.jpeg',
           },
         ],
       },
@@ -677,6 +704,164 @@ export const projects: Project[] = [
         heading: 'More Than a Fragrance Recommendation Tool',
         content:
           'ABNA PICKS demonstrates how a recommendation system can become more valuable when customer experience and business intelligence are designed together.\n\nThe project does not stop at answering the question, "Which perfume should I buy?"\n\nIt also explores the larger questions behind every recommendation:\n\nWho are the customers?\n\nWhat do they prefer?\n\nWhere do they drop off?\n\nWhich fragrances perform best?\n\nWhich customer segments show the strongest preferences?\n\nBy connecting these questions into one system, ABNA PICKS becomes more than a recommendation tool. It becomes a customer intelligence platform built around the fragrance discovery experience.',
+      },
+    },
+  },
+  {
+    id: 'abna-commerce',
+    title: 'ABNA Commerce',
+    subtitle: 'Full-Stack E-commerce Platform for Fragrance Retail · In Progress',
+    category: 'Web / Product Development',
+    role: 'Product Engineer · Full-Stack Development · AI-Assisted Development',
+    projectType: 'Single-Seller E-commerce Platform',
+    year: '2026',
+    client: 'ABNA Parfum',
+    description:
+      'ABNA Commerce is a single-seller e-commerce platform being developed for ABNA Parfum. The platform aims to provide a complete online fragrance shopping experience while supporting the business operational needs.\n\nUnlike a generic e-commerce catalog, ABNA Commerce includes fragrance-specific product discovery features that allow customers to filter products based on fragrance family, top notes, middle notes, base notes, occasion, and gender.\n\nThe platform also includes product detail pages with variant selection, checkout workflows, payment integration through Midtrans, and shipping integration through Biteship.\n\nThis project is currently in progress and is presented as an active product engineering initiative rather than a fully launched or completed product.',
+    coverImage: '/images/abna%20commerce/abna%20hero%20section.png',
+    image: '/images/abna%20commerce/abna%20hero%20section.png',
+    images: [
+      '/images/abna%20commerce/abna%20hero%20section.png',
+      '/images/abna%20commerce/abna%20product%20section.png',
+      '/images/abna%20commerce/abna%20katalog.png',
+      '/images/abna%20commerce/abna%20product%20detail.png',
+      '/images/abna%20commerce/abna%20product%20detail%202.png',
+      '/images/abna%20commerce/abna%20cart.png',
+    ],
+    coverPlaceholder: 'analytics',
+    tools: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Supabase',
+      'PostgreSQL',
+      'Midtrans',
+      'Biteship',
+      'Codex',
+      'Postman',
+    ],
+    technologies: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Supabase',
+      'PostgreSQL',
+      'Midtrans',
+      'Biteship',
+      'Codex',
+      'Postman',
+      'Product Engineering',
+      'Single-Seller Commerce Architecture',
+      'Fragrance Discovery UX',
+      'Checkout & Order Flow',
+      'Operational Commerce Logic',
+    ],
+    highlights: [
+      'Fragrance-first discovery experience with catalog filtering by fragrance family, notes, occasion, and gender.',
+      'Product detail and variant selection flow tuned for customer decision-making in fragrance purchases.',
+      'Checkout, payment, and shipping integrations designed to support a single-seller commerce workflow.',
+      'Product engineering foundation built around business rules, product logic, and reliable operational behavior.',
+      'Current project status is In Progress, with the platform presented as an active development initiative rather than a completed launch.',
+    ],
+    caseStudy: {
+      overview: {
+        heading: 'Overview',
+        content:
+          'ABNA Commerce is a single-seller e-commerce platform being developed for ABNA Parfum. The platform aims to provide a complete online fragrance shopping experience while supporting the business operational needs.\n\nUnlike a generic e-commerce catalog, ABNA Commerce includes fragrance-specific product discovery features that allow customers to filter products based on fragrance family, top notes, middle notes, base notes, occasion, and gender.\n\nThe platform also includes product detail pages with variant selection, checkout workflows, payment integration through Midtrans, and shipping integration through Biteship.\n\nThe project is currently in progress and should be understood as a live product engineering initiative, not a fully launched or completed commercial platform.',
+        workflowSteps: [
+          'Product Discovery',
+          'Variant Selection',
+          'Checkout & Payment',
+          'Shipping Logic',
+          'Operational Commerce',
+        ],
+      },
+      featureShowcases: {
+        heading: 'Product Experience & Core Features',
+        intro:
+          'The core experience focuses on fragrance-first discovery, clear product understanding, and a checkout flow that aligns with the buying journey for a premium fragrance retail brand.',
+        features: [
+          {
+            title: '1. Fragrance Discovery & Catalog Experience',
+            description:
+              'Customers can browse a fragrance catalog with product filters and clear collection layouts to help them find scents that suit their preferences.',
+            image: '/images/abna%20commerce/abna%20katalog.png',
+            imageAlt: 'ABNA Parfum catalog with fragrance filters and product cards',
+          },
+          {
+            title: '2. Curated Product Sections',
+            description:
+              'The storefront presents curated fragrance collections and product recommendations as part of the shopping experience.',
+            image: '/images/abna%20commerce/abna%20product%20section.png',
+            imageAlt: 'Curated fragrance product section on the ABNA storefront',
+          },
+          {
+            title: '3. Product Detail & Variant Selection',
+            description:
+              'Product pages bring fragrance details, pricing, and available variants together to support an informed purchase decision.',
+            image: '/images/abna%20commerce/abna%20product%20detail.png',
+            imageAlt: 'ABNA Parfum product detail page with variant selection',
+          },
+          {
+            title: '4. Fragrance Notes & Product Story',
+            description:
+              'The product experience also explains fragrance layers and helps customers understand the character of a scent.',
+            image: '/images/abna%20commerce/abna%20product%20detail%202.png',
+            imageAlt: 'Fragrance notes and product storytelling on ABNA Commerce',
+          },
+          {
+            title: '5. Cart & Purchase Review',
+            description:
+              'The cart lets customers review selected products and quantities before continuing to checkout.',
+            image: '/images/abna%20commerce/abna%20cart.png',
+            imageAlt: 'ABNA Commerce cart with selected products and checkout summary',
+          },
+        ],
+      },
+      technicalArchitecture: {
+        heading: 'Technical Implementation',
+        content:
+          'ABNA Commerce is being developed as a modern full-stack commerce product using Next.js, React, TypeScript, and Tailwind CSS. The frontend is structured to support a strong product experience, while Supabase and PostgreSQL provide a reliable data foundation for catalog, cart, order, and operational logic.\n\nMidtrans and Biteship are integrated to support payment and shipping workflows, while the engineering approach is shaped by product requirements, business rules, and practical implementation constraints. The system is designed to remain maintainable as business needs evolve.',
+        tags: [
+          {
+            category: 'Frontend',
+            items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+          },
+          {
+            category: 'Data & Backend',
+            items: ['Supabase', 'PostgreSQL', 'Server-side product logic'],
+          },
+          {
+            category: 'Commerce & Operations',
+            items: ['Midtrans', 'Biteship', 'Checkout flow', 'Shipping logic'],
+          },
+          {
+            category: 'Product Engineering Workflow',
+            items: ['Business rule definition', 'AI-assisted implementation', 'Product validation'],
+          },
+        ],
+      },
+      roleOverview: {
+        heading: 'My Role',
+        content:
+          'Product Engineer · Full-Stack Development · AI-Assisted Product Engineering\n\nI work as the Product Engineer responsible for shaping ABNA Commerce from product direction to implementation. My role covers understanding the business and user needs, translating them into product flow and technical requirements, designing the user experience, and building the platform using Next.js, React, TypeScript, and Supabase.',
+        responsibilities: [
+          'Defining product direction and business requirements for the commerce experience.',
+          'Translating operational needs into UX flows, interface structure, and business rules.',
+          'Designing product discovery, detail page, checkout, and fulfillment decision paths.',
+          'Implementing the application using Next.js, React, TypeScript, and Supabase.',
+          'Defining engineering rules, constraints, and technical instructions for AI-assisted coding workflows.',
+          'Validating implementation quality through product review, testing, and debugging with Codex and supporting tools.',
+        ],
+        concludingNote:
+          'This project reflects a product engineering approach that combines product thinking, technical implementation, business logic, and AI-assisted development in one iterative workflow.',
+      },
+      conclusion: {
+        heading: 'Conclusion',
+        content:
+          'ABNA Commerce is being developed as an e-commerce platform centered on fragrance discovery, product trust, and operational clarity.\n\nThe project remains in progress, and the work is focused on building the right product foundation, commercial flow, and experience decisions before presenting it as a completed launch-ready product.\n\nThe goal is to create a reliable, product-led commerce experience that supports ABNA Parfum’s business goals while delivering a clear and engaging buying journey for customers.',
       },
     },
   },
